@@ -1,0 +1,73 @@
+// Create tables
+POST http://localhost:3000/api/tables
+
+###
+
+// Create user:
+POST http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "email": "test1@email.com",
+    "first_name": "1chelsea",
+    "last_name": "1yang",
+    "password": "XX1password"
+}
+
+###
+
+POST http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "email": "test2@email.com",
+    "first_name": "2chelsea",
+    "last_name": "2yang",
+    "password": "XX2password"
+}
+
+###
+
+POST http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "email": "test3@email.com",
+    "first_name": "3chelsea",
+    "last_name": "3yang",
+    "password": "XX3password"
+}
+
+###
+// Get all users
+GET http://localhost:3000/api/users HTTP/1.1
+content-type: application/json
+
+###
+// Get one user
+GET http://localhost:3000/api/users/2 HTTP/1.1
+content-type: application/json
+
+###
+// Update one user's information
+PUT http://localhost:3000/api/users/2 HTTP/1.1
+content-type: application/json
+
+{
+    "email": "changed2@email.com",
+    "first_name": "chelsea",
+    "last_name": "yang",
+    "password": "NEW2__XXpassword"
+}
+
+###
+// Delete all users
+DELETE http://localhost:3000/api/users HTTP/1.1
+
+### 
+// Delete one user
+DELETE http://localhost:3000/api/users/6 HTTP/1.1
+
+###
+// Delete users table
+DELETE http://localhost:3000/api/tables HTTP/1.1
