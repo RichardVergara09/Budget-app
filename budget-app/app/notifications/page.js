@@ -10,7 +10,7 @@ export default function NotificationsMain() {
   ];
 
   return (
-    <div className="flex">
+    <div className="flex bg-white min-h-screen">
       {/* Navigation Bar */}
       <NavigationBar />
 

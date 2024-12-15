@@ -3,13 +3,14 @@ import NavigationBar from "../../components/NavigationBar";
 
 export default function DashboardMain() {
   return (
-    <div className="flex">
+    <div className="flex bg-white min-h-screen" >
       {/* Navigation Bar */}
       <NavigationBar />
 
       {/* Main Content */}
       <div className="flex-1 ml-64 flex items-center justify-center">
         <div className="space-y-6 w-full max-w-3xl p-6">
+        <h1 className="text-3xl text-gray-800 text-center">Overview</h1>
           <div className="bg-gray-200 p-6 rounded-lg shadow">
             <h2 className="text-xl font-bold text-gray-800">November Budget</h2>
             <div className="space-y-2">

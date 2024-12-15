@@ -22,7 +22,7 @@ export default function BudgetProfilesMain() {
   ];
 
   return (
-    <div className="flex">
+    <div className="flex bg-white min-h-screen">
       {/* Navigation Bar */}
       <NavigationBar />
 
@@ -30,7 +30,7 @@ export default function BudgetProfilesMain() {
       <div className="flex-1 ml-64 flex justify-center">
         <div className="space-y-6 w-full max-w-3xl p-8">
           {/* Header */}
-          <h1 className="text-2xl font-bold text-gray-800 text-center">Budget Profiles</h1>
+          <h1 className="text-2xl font-bold text-gray-400 text-center">Budget Profiles</h1>
 
           {/* Add Budget Profile Button */}
           <Button className="w-full bg-gray-200 text-center text-lg py-4">

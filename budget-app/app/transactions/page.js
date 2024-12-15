@@ -26,7 +26,7 @@ export default function TransactionsMain() {
   ];
 
   return (
-    <div className="flex">
+    <div className="flex bg-white min-h-screen">
       {/* Navigation Bar */}
       <NavigationBar />
 
@@ -34,7 +34,7 @@ export default function TransactionsMain() {
       <div className="flex-1 ml-64 flex justify-center">
         <div className="space-y-6 w-full max-w-3xl p-8">
           {/* Header */}
-          <h1 className="text-2xl font-bold text-gray-800 text-center">Transactions</h1>
+          <h1 className="text-2xl font-bold text-gray-400 text-center">Transactions</h1>
 
           {/* Filter Buttons */}
           <div className="flex justify-between gap-4">

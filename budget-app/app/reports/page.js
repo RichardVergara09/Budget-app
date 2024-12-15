@@ -5,7 +5,7 @@ export default function ReportsMain() {
   const placeholderData = [1, 2, 3];
 
   return (
-    <div className="flex">
+    <div className="flex bg-white min-h-screen">
       {/* Navigation Bar */}
       <NavigationBar />
 

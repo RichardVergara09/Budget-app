@@ -19,7 +19,7 @@ export default function LoansDebtsMain() {
   ];
 
   return (
-    <div className="flex">
+    <div className="flex bg-white min-h-screen">
       {/* Navigation Bar */}
       <NavigationBar />
 
