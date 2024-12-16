@@ -1,32 +1,31 @@
-import { neon } from '@neondatabase/serverless';
+import {neon} from '@neondatabase/serverless';
 
-
-// fetch list of users
+// fetch list of transactions
 export async function GET() {
     const databaseURL = process.env.DATABASE_URL || "";
     const sql = neon(databaseURL);
-    const response = await sql`SELECT * FROM users;`;
+    const response = await sql`SELECT id, description, amount, TO_CHAR(date, 'DD-MM-YY') as date FROM transactions ORDER BY date;`;
     return new Response(JSON.stringify(response), {status: 200});
 }
 
-// create a new user
+// create a new transaction
 export async function POST(request) {
     const requestData = await request.json();
     const databaseURL = process.env.DATABASE_URL || "";
     const sql = neon(databaseURL);
     const response = await sql`
-        INSERT INTO users (email, password)
-        VALUES (${requestData.email}, ${requestData.password})
-        RETURNING *;
-    `;
-    // RETURNING *; returns the newly created
+        INSERT INTO transactions
+        (description, amount, date) VALUES (${requestData.description}, ${requestData.amount}, ${requestData.date})
+        RETURNING *;`;
     return new Response(JSON.stringify(response), {status: 201});
 }
 
-// delete all users
+// delete all transactions
 export async function DELETE() {
     const databaseURL = process.env.DATABASE_URL || "";
     const sql = neon(databaseURL);
-    const response = await sql`DELETE FROM users;`;
-    return new Response(JSON.stringify(response), {status: 200});
+    const response = await sql`
+        DELETE FROM transactions;`;
+
+    return new Response(null, {status: 204});
 }
