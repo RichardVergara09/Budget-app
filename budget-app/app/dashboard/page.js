@@ -1,5 +1,6 @@
 import Button from "../../components/Button";
 import NavigationBar from "../../components/NavigationBar";
+import Link from "next/link";
 
 export default function DashboardMain() {
   return (
@@ -31,8 +32,8 @@ export default function DashboardMain() {
           <Button className="w-full">Add Transaction</Button>
 
           <div className="grid grid-cols-2 gap-4">
-            <Button>View Transactions</Button>
-            <Button>Loans & Debts</Button>
+            <Link href="transactions" className="bg-gray-300 text-gray-700 p-4 rounded shadow hover:bg-gray-400 text-center">View Transactions</Link>
+            <Link href="loans-debts" className="bg-gray-300 text-gray-700 p-4 rounded shadow hover:bg-gray-400 text-center">Loans & Debts</Link>
           </div>
 
           <Button className="w-full">Edit Home Page</Button>

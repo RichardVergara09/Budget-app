@@ -1,10 +1,9 @@
 import { neon } from "@neondatabase/serverless";
 
-// fetch list of users
+// fetch single users
 export async function GET(request, { params }) {
     const databaseUrl = process.env.DATABASE_URL || "";
     const sql = neon(databaseUrl);
-  
     const id = Number(params.id);
     const response = await sql`SELECT * FROM users WHERE id = ${id};`;
     const user = response[0];
@@ -14,7 +13,7 @@ export async function GET(request, { params }) {
     }
   
     return new Response(JSON.stringify(user), { status: 200 });
-  }
+}
 
 // create a new user
 export async function POST(request) {
@@ -22,8 +21,8 @@ export async function POST(request) {
     const databaseURL = process.env.DATABASE_URL || "";
     const sql = neon(databaseURL);
     const response = await sql`
-        INSERT INTO users (email, first_name, last_name, password)
-        VALUES (${requestData.email}, ${requestData.first_name}, ${requestData.last_name}, ${requestData.password})
+        INSERT INTO users (email, password)
+        VALUES (${requestData.email}, ${requestData.password})
         RETURNING *;
     `;
     // RETURNING *; returns the newly created
@@ -51,7 +50,7 @@ export async function PUT(request, { params }) {
     const requestData = await request.json();
   
     const response =
-      await sql`UPDATE users SET email = ${requestData.email}, first_name = ${requestData.first_name}, last_name = ${requestData.last_name}, password = ${requestData.password} WHERE id = ${params.id} RETURNING *;`;
+      await sql`UPDATE users SET email = ${requestData.email}, password = ${requestData.password} WHERE id = ${params.id} RETURNING *;`;
   
     if (response.length === 0) {
       return new Response(null, { status: 404 });
